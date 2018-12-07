@@ -15,7 +15,6 @@ module.exports = {
    path: path.resolve(__dirname, '../dist'),
    filename: "[name].[chunkhash].js",
    chunkFilename: "[id].[chunkhash].js"
-
  },
  resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -78,7 +77,6 @@ module.exports = {
         fallback: "vue-style-loader",
         use: "css-loader"
       })
-
       //  use: ['style-loader','css-loader']
      },
      {
