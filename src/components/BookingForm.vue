@@ -14,11 +14,11 @@
     </div>
     <div>
       <label class="form-label">Input customerID</label>
-      <input class="form__input" type="number" v-model.trim="customerID"/>
+      <input class="form__input" type="decimal" v-model.trim="customerID"/>
     </div>
     <div class="form-group">
       <label class="form-label">Input date</label>
-      <input class="form__input" type="date" v-model.trim="date"/>
+      <input class="form__input" type="decimal" v-model.trim="date"/>
     </div>
     <div class="form-group" :class="{ 'form-group--error': $v.amount.$error }">
       <label class="form-control-label" name="amount">Amount (Enter a number between 1 and 3)</label>

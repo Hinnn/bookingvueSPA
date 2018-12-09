@@ -103,7 +103,7 @@ export default {
               this.submitStatus = 'OK'
               sessionStorage.setItem('token', this.info.headers.token)
               setTimeout(() => {
-                this.$router.push('/Home')
+                this.$router.push('/room')
               }, 1000)
             }
           })

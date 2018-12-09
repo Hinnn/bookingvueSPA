@@ -26,7 +26,6 @@ export default {
       props: ['booking'],
       errors: [],
       columns: ['_id', 'customerID', 'paymenttype', 'date', 'amount', 'roomNum', 'edit', 'remove'],
-      // columns: ['customerID', 'paymenttype', 'date', 'amount', 'roomNum', 'edit', 'remove'],
       options: {
         perPage: 10,
         filterable: ['customerID', 'date'],

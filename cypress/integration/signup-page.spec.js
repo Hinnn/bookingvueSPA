@@ -17,7 +17,7 @@ describe('Book page', () => {
     cy.get('.btn').click()
     // cy.get('.col-md-6').find(':nth-child(6)').find('.btn').click()
     cy.contains('SignUp Successfully!').should('exist')
-    cy.url().should('include', '/Home')
+    cy.url().should('include', '/room')
   })
 
   it('shows error messages for incomplete form fields', () => {
