@@ -6,7 +6,7 @@ import Book from '@/components/Book'
 import Room from '@/components/Room'
 import AboutUs from '@/components/AboutUs'
 import ContactUs from '@/components/ContactUs'
-// import Edit from '@/components/Edit'
+import SignUp from '@/components/SignUp'
 Vue.use(Router)
 
 export default new Router({
@@ -35,6 +35,11 @@ export default new Router({
       path: '/room',
       name: 'Room',
       component: Room
+    },
+    {
+      path: '/SignUp',
+      name: 'SignUp',
+      component: SignUp
     },
     {
       path: '/about',

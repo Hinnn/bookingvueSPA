@@ -1,52 +1,32 @@
 <template>
   <form @submit.prevent="submit">
     <div class="form-group">
-      <label class="form-label">Select Payment Type</label>
-      <select id="paymenttype" name="paymenttype" class="form-control"
-              type="text" v-model="paymenttype">
-        <option value="null" selected disabled hidden>Choose Payment Type</option>
-        <option value="Direct">Direct</option>
-        <option value="PayPal">PayPal</option>
-        <option value="Visa">Visa</option>
-      </select>
-    </div>
-    <div>
       <label class="form-label">Input customerID</label>
-      <input class="form__input" type="decimal" v-model.trim="customerID"/>
+      <input class="form__input" type="number" v-model.trim="customerID"/>
+      <div class="error" v-if="!$v.customerID.required">customerID is Required</div>
     </div>
     <div class="form-group">
-      <label class="form-label">Input date</label>
-      <input class="form__input" type="decimal" v-model.trim="date"/>
+      <label class="form-label">Input name</label>
+      <input class="form__input" type="name" v-model.trim="name"/>
+      <div class="error" v-if="!$v.name.required">Name is Required</div>
     </div>
-    <div class="form-group" :class="{ 'form-group--error': $v.amount.$error }">
-      <label class="form-control-label" name="amount">Amount (Enter a number between 1 and 3)</label>
-      <input class="form__input" type="decimal" v-model.trim="amount"/>
+    <div class="form-group" :class="{ 'form-group--error': $v.email.$error }">
+      <label class="form-label" name="email">Email</label>
+      <input class="form__input" type="email" placeholder="Enter Email" v-model.trim="email"/>
     </div>
-    <div class="error" v-if="!$v.amount.between">Amount must be between 1 and 3</div>
-    <div class="form-group">
-      <label class="form-label">Select a Room Num</label>
-      <select id="roomNum" name="roomNum" class="form-control"
-              type="text" v-model="roomNum">
-        <option value="null" selected disabled hidden>Choose Room Num</option>
-        <option value="101">101</option>
-        <option value="102">102</option>
-        <option value="103">103</option>
-        <option value="104">104</option>
-        <option value="201">201</option>
-        <option value="202">202</option>
-        <option value="203">203</option>
-        <option value="204">204</option>
-        <option value="301">301</option>
-        <option value="302">302</option>
-        <option value="303">303</option>
-        <option value="304">304</option>
-      </select>
+    <div class="error" v-if="!$v.email.required">Email is Required</div>
+    <div class="error" v-if="!$v.email.email">Email format is wrong</div>
+    <div class="form-group" :class="{ 'form-group--error': $v.password.$error }">
+      <label class="form-label" name="password">Password (Minimum Password length is 6)</label>
+      <input class="form__input" type="password" placeholder="Enter Password" v-model.trim="password"/>
+      <div class="error" v-if="!$v.password.required">Password is Required</div>
     </div>
+    <div class="error" v-if="!$v.password.minLength">Minimum Password length is 6</div>
     <p>
-      <button class="btn btn-primary btn1" type="submit" :disabled="submitStatus === 'PENDING'">{{ bookingBtnTitle }}</button>
+      <button class="btn btn-primary btn1" type="submit" :disabled="submitStatus === 'PENDING'">{{ customerBtnTitle }}</button>
     </p>
     <p>
-      <a href="#/bookings" class="btn btn-primary btn1" role="button">Manage Bookings</a>
+      <a href="#/customers" class="btn btn-primary btn1" role="button">Manage Customers</a>
     </p>
     <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your Booking!</p>
     <p class="typo__p" v-if="submitStatus === 'ERROR'">Please Fill in the Form Correctly.</p>
@@ -58,7 +38,7 @@
 import Vue from 'vue'
 import VueForm from 'vueform'
 import Vuelidate from 'vuelidate'
-import { required, between } from 'vuelidate/lib/validators'
+import { required, email, minLength } from 'vuelidate/lib/validators'
 
 Vue.use(VueForm, {
   inputClasses: {
@@ -71,26 +51,31 @@ Vue.use(Vuelidate)
 
 export default {
   name: 'FormData',
-  props: ['bookingBtnTitle', 'booking'],
+  props: ['customerBtnTitle', 'customer'],
   data () {
     return {
-      messagetitle: 'Book',
-      customerID: this.booking.customerID,
-      paymenttype: this.booking.paymenttype,
-      date: this.booking.date,
-      amount: this.booking.amount,
-      roomNum: this.booking.roomNum,
+      messagetitle: 'SignUp',
+      customerID: this.customer.customerID,
+      name: this.customer.name,
+      email: this.customer.email,
+      password: this.customer.password,
       submitStatus: null
     }
   },
   validations: {
-    /* message: {
-        required,
-        minLength: minLength(5)
-      }, */
-    amount: {
+    customerID: {
+      required
+    },
+    name: {
+      required
+    },
+    email: {
       required,
-      between: between(1, 3)
+      email
+    },
+    password: {
+      required,
+      minLength: minLength(6)
     }
   },
   methods: {
@@ -104,17 +89,16 @@ export default {
         this.submitStatus = 'PENDING'
         setTimeout(() => {
           this.submitStatus = 'OK'
-          var booking = {
+          var customer = {
             customerID: this.customerID,
-            paymenttype: this.paymenttype,
-            date: this.date,
-            amount: this.amount,
-            roomNum: this.roomNum
+            name: this.name,
+            email: this.email,
+            password: this.password
           }
-          this.booking = booking
-          console.log('Submitting in BookingForm : ' +
-              JSON.stringify(this.booking, null, 5))
-          this.$emit('booking-is-created-updated', this.booking)
+          this.customer = customer
+          console.log('Submitting in CustomerForm : ' +
+              JSON.stringify(this.customer, null, 5))
+          this.$emit('customer-is-created-updated', this.customer)
         }, 500)
       }
     }
