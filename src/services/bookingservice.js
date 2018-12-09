@@ -9,7 +9,7 @@ export default {
       { headers: {'Content-type': 'application/json'} })
   },
   upvoteBooking (customerID) {
-    return Api().put(`/donations/${customerID}/amount`)
+    return Api().put(`/bookings/${customerID}/amount`)
   },
   deleteBooking (customerID) {
     return Api().delete(`/bookings/${customerID}`)

@@ -1,7 +1,8 @@
 <template>
   <div class="hero">
     <h3 class="vue-title"><i class="fa fa-comment" style="padding: 3px"></i>{{messagetitle}}</h3>
-    <p class="lead">If you have any questions just contact us! <b>772012459@qq.com</b> is our email!</p>
+    <p class="lead">If you have any questions just contact us! </p>
+    <p class="lead"><b>772012459@qq.com</b> is our email!</p>
   </div>
 </template>
 <script>

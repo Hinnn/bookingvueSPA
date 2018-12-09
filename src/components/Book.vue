@@ -19,7 +19,7 @@ import BookingForm from '@/components/BookingForm'
 export default {
   data () {
     return {
-      booking: {date: 20180101, amount: 1},
+      booking: {},
       messagetitle: ' Make a Booking '
     }
   },

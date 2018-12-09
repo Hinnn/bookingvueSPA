@@ -6,7 +6,7 @@ import Book from '@/components/Book'
 import Room from '@/components/Room'
 import AboutUs from '@/components/AboutUs'
 import ContactUs from '@/components/ContactUs'
-import Edit from '@/components/Edit'
+// import Edit from '@/components/Edit'
 Vue.use(Router)
 
 export default new Router({
@@ -26,11 +26,11 @@ export default new Router({
       name: 'Book',
       component: Book
     },
-    {
+    /* {
       path: '/edit',
       name: 'Edit',
       component: Edit
-    },
+    }, */
     {
       path: '/room',
       name: 'Room',

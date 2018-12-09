@@ -8,6 +8,8 @@
         <option value="Direct">Direct</option>
         <option value="PayPal">PayPal</option>
         <option value="Visa">Visa</option>
+        <option value="Master">Master</option>
+
       </select>
     </div>
     <div>
