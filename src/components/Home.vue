@@ -6,7 +6,7 @@
         <td>
           <p class="lead"><b><i>Time for a reservation !!</i></b>
           <p>Just click <a href ="#/room">here</a> to go to</p>
-          <p>the Room page and find your room</p>
+          <p>the Room page and find room</p>
         </td>
         <td>
           <img src="../assets/home1.gif" width = "300" height = "300" alt="description here" />
