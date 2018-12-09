@@ -3,14 +3,14 @@ language: node_js
 node_js:
 - "stable"
 cache:
-   directories:
-   - node_modules
+  directories:
+  - node_modules
 before_script:
-- npm install -g httpserver
-- npm run custom-build
-- cd dist && http-server -p 8080 &
+  - npm install -g httpserver
+  - npm run custom-build
+  - cd dist && http-server -p 8080 &
 script:
-- npx cypress run
+  - npx cypress run
 deploy:
   provider: surge
   skip_cleanup: true
