@@ -19,7 +19,7 @@ describe('Manage Bookings page', () => {
         })
       })
     cy.visit('/')
-    // Click Manage Donations navbar link
+    // Click Manage Bookings navbar link
     cy.get('.navbar-nav:nth-child(1)')
       .find('.nav-item:nth-child(3)').click()
   })
