@@ -8,7 +8,8 @@ describe('Home page', () => {
     cy.get('b > i').should('contain', 'Time for a reservation !!')
     cy.get('tr > :nth-child(1) > :nth-child(2)')
     cy.get('tr > :nth-child(1) > :nth-child(2) > a').should('have.attr', 'href', '#/room')
-    cy.get('tr > :nth-child(1) > :nth-child(3)').should('contain', 'the Room page and find your room')
+    cy.get('tr > :nth-child(1) > :nth-child(3)').should('contain', 'the Room page and find room')
+    // cy.get('tr > :nth-child(1) > :nth-child(3)').should('contain', 'the Room page and find your room')
     cy.get('.hero > :nth-child(4)').should('contain', 'This is the homepage of hotelBooking Web app')
   });
 
