@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import CustomerService from '@/services/CustomerService'
+import CustomerService from '@/services/customerservice'
 import Vue from 'vue'
 import VueForm from 'vueform'
 import Vuelidate from 'vuelidate'

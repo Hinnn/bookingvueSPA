@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import BookingService from '@/services/BookingService'
+import BookingService from '@/services/bookingservice'
 import BookingForm from '@/components/BookingForm'
 
 export default {

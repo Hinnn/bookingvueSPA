@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import BookingService from '@/services/BookingService'
+import BookingService from '@/services/bookingservice'
 import Vue from 'vue'
 import VueTables from 'vue-tables-2'
 
