@@ -4,7 +4,7 @@ describe('Home page', () => {
   });
 
   it('Shows a header', () => {
-    cy.get('.vue-title').should('contain', 'Homer for Customer !!');
+    cy.get('.vue-title').should('contain', 'Homer for Customers !!');
     cy.get('b > i').should('contain', 'Time for a reservation !!')
     cy.get('tr > :nth-child(1) > :nth-child(2)')
     cy.get('tr > :nth-child(1) > :nth-child(2) > a').should('have.attr', 'href', '#/room')
